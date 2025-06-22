@@ -57,8 +57,10 @@ export const getByDate = (req:Request, res: Response)=> {
 
     res.status(200).send({
         success:true,
-        result: filterData
+        result: filterData,
+        totalExpense: filterData.reduce((sum:number, currentValue: IExpense)=> currentValue.type === "expense" ? sum + currentValue.nominal : sum,0),
+        totalIncome: filterData.reduce((sum:number, currentValue: IExpense)=> currentValue.type === "income" ? sum + currentValue.nominal : sum, 0)
     })
-}
+};
 
     
