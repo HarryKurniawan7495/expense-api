@@ -1,10 +1,11 @@
-import fs from "fs";
+import { Pool } from "pg";
 
-export const readDB = ()=>{
-    console.log(`${process.env.PATH_DB}`);
-    return JSON.parse(fs.readFileSync(`${process.env.PATH_DB}`).toString())
-}
+const poolDB = new Pool ({
+    user:"postgres.onvvinwutptmyefmvyvi",
+    host:"aws-0-us-west-1.pooler.supabase.com",
+    database:"postgres",
+    password:"Daffa20102006",
+    port:6543
+});
 
-export const writeDB = (data: any)=>{
-    return fs.writeFileSync(`${process.env.PATH_DB}`,JSON.stringify(data, null, 2));
-}
+export default poolDB;
