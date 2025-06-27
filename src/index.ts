@@ -4,7 +4,7 @@ import express, {Application, Request, Response} from "express";
 //import routers
 import expenseRouter from "./routers/expense.router"
 import poolDB from "./config/db";
-
+import cors from "cors";
 
 const PORT:string | number = process.env.PORT || 2500
 
