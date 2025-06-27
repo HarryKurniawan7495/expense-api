@@ -9,7 +9,7 @@ router.patch("/:id", updateData); // Assuming you want to use updateData for pat
 // Note: If you want to use the same function for both POST and PUT, you can  
 // use the same function for both routes, but it's generally better to have distinct functions for clarity.
 // If you want to use the same function for both POST and PUT, you can do so    
-router.delete("/:id", deleteData); // Assuming you want to use deleteData for delete requests
+router.delete("/.id", deleteData) // Assuming you want to use deleteData for delete requests
 router.post("/", addData);
 router.put("/:id", addData); // Assuming you want to use the same addData for update
 
