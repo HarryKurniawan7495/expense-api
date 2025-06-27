@@ -3,8 +3,9 @@ dotenv.config();
 import express, {Application, Request, Response} from "express";
 //import routers
 import expenseRouter from "./routers/expense.router"
-import poolDB from "./config/db";
-import cors from "cors";
+
+
+
 
 const PORT:string | number = process.env.PORT || 2500
 
@@ -21,13 +22,9 @@ app.get("/", (req: Request, res: Response)=>{
 app.use("/expense", expenseRouter);
 
 //check DB connection
-poolDB.connect((err, client, release)=>{
-    if(err) {
-        return console.log("Error connection", err.message);
-    }
-    console.log("Success Connection");
-    release();
-})
+import { PoolClient } from "pg";
+
+
 
 app.listen(PORT,()=>{
     console.log("EXPENSE API is RUNNNING", PORT);
